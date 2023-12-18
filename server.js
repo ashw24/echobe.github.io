@@ -24,10 +24,11 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 // middleware
 app.use(express.json()) // to get req body
 
-app.use(cors({
-  origin: 'http://localhost:3000',
+const corsOptions = {
+  origin: ['https://ashw24.github.io/echo2.github.io/', 'https://ashw24.github.io/echo.github.io/'],
   credentials: true
-}));
+};
+app.use(cors(corsOptions));
 
 app.use(session({
   secret: 'keyboard cat',
